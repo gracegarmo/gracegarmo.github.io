@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+body {
+    margin: 5%;
+    font-family: 'Nunito', sans-serif, 'Times New Roman';
+    color: #000000;
+    background-color: #FFEAFF;
+    background-image: url(../images/firecracker.png);
+}
+
+header {
+    background-color: #FFFFFF;
+    border: 2px solid #000000;
+    border-radius: 10px 10px 0px 0px;
+    border-bottom: none;
+}
+
+main {
+    background-color: #FFFFFF;
+    padding: 50px;
+    border: 2px solid #000000;
+    border-radius: 0px 0px 10px 10px;
+    font-size: 18px;
+}
+
+h1 {
+    text-align: center;
+    font-weight: 800;
+    font-size: 40px;
+    padding: 12px;
+}
+
+h2 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 32px;
+    padding: 12px;
+    margin-bottom: 30px;
+}
+
+p {
+    font-weight: 400;
+    line-height: 2;
+}
+
+img {
+    width: 250px;
+    display: block;
+    margin: 0 auto;
+    border: 3px groove #ef95e1;
+    padding: 10px;
+}
+
+img:hover {
+    border: 3px dotted #ef95e1;
+}
+
+nav {
+    padding: 30px;
+    text-align: center;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.title {
+    color: #000000;
+}
+
+nav li {
+    color: #000000;
+    padding: 10px;
+    display: inline-block;
+    width: 10%;
+}
+
+nav li:hover {
+    background-color: #ef95e1;
+    box-shadow: 0 5px rgb(185, 185, 185);
+    transform: translateY(-4px);
+    border-radius: 20px;
+  }
+
+footer p {
+    text-align: center;
+}
+
+.active {
+    border: 2px solid #000000;
+    border-radius: 20px;
+    background-color: #FFEAFF;
+}
+
+li.active a {
+    color: #000000;
+}
+
+a:visited{color: #000000;}
+
+a:link{text-decoration: none}
+
+hr {
+    background-color: #E35550;
+    height: 6px;
+}
+
+.skip:hover{
+    color: #E35550;
+}
+
+.styled-img{
+    margin-bottom: 20px;
+}
+
+a.ul-link {
+    text-decoration: underline;
+    text-decoration-color: #000000;
+}
+
+a.skip{
+    background: white;
+    left: 0;
+    padding: 6px;
+    position: absolute;
+    top: -40px;
+    -webkit-transition: top 1s ease-out;
+    transition: top 1s ease-out;
+    z-index: 1;
+}
+
+a.skip:focus{
+    top:20px;
+    color: black;
+    text-decoration-style: solid;
+}
+
+.image-container .styled-img:nth-child(2n) {
+    border: 3px groove #000000;
+}
+
+.main-content {
+    padding: 40px;
+}
+
+.flex-row-cont {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.text-container {
+    padding: 40px;
+}
+
+.food-images {
+    padding: 40px;
+    padding-top: 10px;
+}
+
+.intro {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+ .animated {
+    animation-duration: 2s;
+    animation-name: slide;
+  }
+  
+  @keyframes slide {
+    from {
+      margin-left: 50%;
+    }
+  
+    to {
+      margin-left: 30%;
+    }
+  }
+
+  .image-grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-content: center;
+  }
+
+@media screen and (max-width: 480px) {
+    .flex-row-cont {
+        flex-direction: column;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    .main-content {
+        padding: 0px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin: auto;
+        font-size: 16px;
+    }
+
+    .flex-row-cont {
+        padding: 0px;
+    }
+
+    .flex-col-cont {
+        padding: 0px;
+    }
+
+    .text-container {
+        padding: 10px;
+    }
+
+    .intro {
+        padding: 10px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .image-grid {
+        grid-template-columns: auto;
+        grid-template-rows: auto auto auto;
+    }
+
+    ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav {
+        margin: auto;
+        text-align: center;
+    }
+
+    nav li {
+        width: 80%;
+        margin: auto;
+    }
+}
+
