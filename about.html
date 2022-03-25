@@ -23,6 +23,22 @@
   gtag('config', 'G-H99NQFXSZG');
 </script>
 
+<script>
+
+	function enlargeText() {
+
+		var main = document.getElementById("main-content");
+		main.classList.toggle("large-text");
+
+		if(document.getElementById("text-enlarge-btn").innerHTML == "Enlarge Text"){
+			document.getElementById("text-enlarge-btn").innerHTML = "Shrink Text";
+		} else {
+			document.getElementById("text-enlarge-btn").innerHTML = "Enlarge Text";
+		}
+	}
+
+</script>
+
 
 	<title>About Me</title>
 </head>
@@ -34,15 +50,17 @@
 			
 		<nav>
 			<ul>
-				<li> <i class="fa-solid fa-house"></i> <a style="margin-left: 10px;" href = "index.html">Home</a></li>
+				<li class="active"> <i class="fa-solid fa-house"></i> <a style="margin-left: 10px;" href = "index.html">Home</a></li>
 				<li><i class="fa-solid fa-bowl-food"></i> <a style="margin-left: 10px;" href = "food.html">Food</a></li>
 				<li><i class="fa-solid fa-whiskey-glass"></i> <a style="margin-left: 10px;" href = "drinks.html">Drinks</a></li> 
-				<li class="active"><i class="fa-solid fa-user"></i> <a style="margin-left: 10px;" href = "about.html">Contact</a></li> 
+				<li><i class="fa-solid fa-user"></i> <a style="margin-left: 10px;" href = "about.html">Contact</a></li>
+				<li><i class="fa-solid fa-magnifying-glass"></i> <a id = "text-enlarge-btn" style="margin-left: 10px;" href = "javascript:enlargeText()">Enlarge Text</a></li> 
 			</ul>
 		</nav>
+		
 	</header>
 	
-	<main>
+	<main id = "main-content">
 		<h1 id="main">Contact Me</h1>
 
 		<br>
@@ -76,13 +94,13 @@
 			>
   			<label>
    			 Your email:
-   			 <input type="email" name="email">
+   			 <input id = "email-input" class = "input-small"  type="email" name="email">
   			</label>
   			<label>
     		Your message:
-    		<textarea name="message"></textarea>
+    		<textarea class = "input-large" name="message"></textarea>
   			</label>
- 			 <button type="submit">Send</button>
+ 			 <button class = "btn-large" type="submit">Send</button>
 			</form>
 	</main>
 
