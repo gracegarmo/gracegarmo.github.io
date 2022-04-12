@@ -30,33 +30,43 @@
 		var main = document.getElementById("main-content");
 		main.classList.toggle("large-text");
 
-		if(document.getElementById("text-enlarge-btn").innerHTML == "Enlarge Text"){
-			document.getElementById("text-enlarge-btn").innerHTML = "Shrink Text";
+		if(document.getElementById("text-enlarge-btn").innerHTML == "Accessibility Mode OFF"){
+			document.getElementById("text-enlarge-btn").innerHTML = "Accessibility Mode ON";
 		} else {
-			document.getElementById("text-enlarge-btn").innerHTML = "Enlarge Text";
+			document.getElementById("text-enlarge-btn").innerHTML = "Accessibility Mode OFF";
+		}
+
+		if (document.getElementById("text-enlarge-btn").innerHTML == "Accessibility Mode ON") {
+			window.speechSynthesis.speak(new SpeechSynthesisUtterance("Accessibility Mode ON"));
+		}
+	}
+
+	function speakTitles(pageName) {
+		if (document.getElementById("text-enlarge-btn").innerHTML == "Accessibility Mode ON") {
+			window.speechSynthesis.speak(new SpeechSynthesisUtterance(pageName));
 		}
 	}
 
 </script>
 
-
 	<title>Drinks</title>
 </head>
 
 <body>
+	<a class = "skip" href="#main">Skip to Main Content</a>
 
 	<header>
-		<a class = "skip" href="#main">Skip to Main Content</a>
+			
 		<nav>
 			<ul>
-				<li> <i class="fa-solid fa-house"></i> <a style="margin-left: 10px;" href = "index.html">Home</a></li>
-				<li><i class="fa-solid fa-bowl-food"></i> <a style="margin-left: 10px;" href = "food.html">Food</a></li>
-				<li class="active"><i class="fa-solid fa-whiskey-glass"></i> <a style="margin-left: 10px;" href = "drinks.html">Drinks</a></li> 
-				<li><i class="fa-solid fa-user"></i> <a style="margin-left: 10px;" href = "about.html">Contact</a></li>
-				<li><i class="fa-solid fa-magnifying-glass"></i> <a id = "text-enlarge-btn" style="margin-left: 10px;" href = "javascript:enlargeText()">Enlarge Text</a></li> 
+				<li onclick="speakTitles('Home')"> <i class="fa-solid fa-house"></i> <a style="margin-left: 10px;" href = "index.html">Home</a></li>
+				<li onclick="speakTitles('Food')"><i class="fa-solid fa-bowl-food"></i> <a style="margin-left: 10px;" href = "food.html">Food</a></li>
+				<li onclick="speakTitles('Drinks')" class="active"><i class="fa-solid fa-whiskey-glass"></i> <a style="margin-left: 10px;" href = "drinks.html">DRINKS</a></li> 
+				<li onclick="speakTitles('Contact')"><i class="fa-solid fa-user"></i> <a style="margin-left: 10px;" href = "about.html">Contact</a></li>
+				<li onclick="speakTitles('Accessibility Mode OFF')"><i class="fa-solid fa-magnifying-glass"></i> <a id = "text-enlarge-btn" style="margin-left: 10px;" href = "javascript:enlargeText()">Accessibility Mode OFF</a></li> 
 			</ul>
 		</nav>
-	
+
 	</header>
 	
 	<main id = "main-content">
@@ -92,7 +102,7 @@
 
 			<div class="flex-row-cont food-images image-container">
 
-				<img class = "styled-img" src = "images/bonjus.jpeg" alt="A carton of bonjus, a Lebanese orange juice beverage in a pyramid shaped container" width="200"/>
+			<img class = "styled-img" src = "images/bonjus.jpeg" alt="A carton of bonjus, a Lebanese orange juice beverage in a pyramid shaped container" width="200"/>
 			<img class = "styled-img" src = "images/turkishcoffee.jpeg" alt="A cup of Turkish coffee being filed by a traditional teapot" width="200"/>
 			<img class = "styled-img" src = "images/laban.jpg" alt="Four glasses of laban, a Lebanese yogurt beverage" width="200"/>
 

@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="css/html5reset.css">
 	
 	<link rel="stylesheet" href="css/style.css">
+
 	<script src="https://kit.fontawesome.com/7f8792e3e2.js" crossorigin="anonymous"></script>
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -23,38 +24,47 @@
 		gtag('config', 'G-H99NQFXSZG');
 	</script>
 
-	<script>
+<script>
 
-		function enlargeText() {
+	function enlargeText() {
 
-			var main = document.getElementById("main-content");
-			main.classList.toggle("large-text");
+		var main = document.getElementById("main-content");
+		main.classList.toggle("large-text");
 
-			if(document.getElementById("text-enlarge-btn").innerHTML == "Enlarge Text"){
-				document.getElementById("text-enlarge-btn").innerHTML = "Shrink Text";
-			} else {
-				document.getElementById("text-enlarge-btn").innerHTML = "Enlarge Text";
-			}
+		if(document.getElementById("text-enlarge-btn").innerHTML == "Accessibility Mode OFF"){
+			document.getElementById("text-enlarge-btn").innerHTML = "Accessibility Mode ON";
+		} else {
+			document.getElementById("text-enlarge-btn").innerHTML = "Accessibility Mode OFF";
 		}
 
-	</script>
+		if (document.getElementById("text-enlarge-btn").innerHTML == "Accessibility Mode ON") {
+			window.speechSynthesis.speak(new SpeechSynthesisUtterance("Accessibility Mode ON"));
+		}
+	}
 
-	<title>Home</title>
+	function speakTitles(pageName) {
+		if (document.getElementById("text-enlarge-btn").innerHTML == "Accessibility Mode ON") {
+			window.speechSynthesis.speak(new SpeechSynthesisUtterance(pageName));
+		}
+	}
+
+</script>
+
+<title>Home</title>
 </head>
 
-<body id = "home-page">
-
+<body>
 	<a class = "skip" href="#main">Skip to Main Content</a>
 
 	<header>
 			
 		<nav>
 			<ul>
-				<li class="active"> <i class="fa-solid fa-house"></i> <a style="margin-left: 10px;" href = "index.html">Home</a></li>
-				<li><i class="fa-solid fa-bowl-food"></i> <a style="margin-left: 10px;" href = "food.html">Food</a></li>
-				<li><i class="fa-solid fa-whiskey-glass"></i> <a style="margin-left: 10px;" href = "drinks.html">Drinks</a></li> 
-				<li><i class="fa-solid fa-user"></i> <a style="margin-left: 10px;" href = "about.html">Contact</a></li>
-				<li><i class="fa-solid fa-magnifying-glass"></i> <a id = "text-enlarge-btn" style="margin-left: 10px;" href = "javascript:enlargeText()">Enlarge Text</a></li> 
+				<li onclick="speakTitles('Home')" class="active"> <i class="fa-solid fa-house"></i> <a style="margin-left: 10px;" href = "index.html">HOME</a></li>
+				<li onclick="speakTitles('Food')"><i class="fa-solid fa-bowl-food"></i> <a style="margin-left: 10px;" href = "food.html">Food</a></li>
+				<li onclick="speakTitles('Drinks')"><i class="fa-solid fa-whiskey-glass"></i> <a style="margin-left: 10px;" href = "drinks.html">Drinks</a></li> 
+				<li onclick="speakTitles('Contact')"><i class="fa-solid fa-user"></i> <a style="margin-left: 10px;" href = "about.html">Contact</a></li>
+				<li onclick="speakTitles('Accessibility Mode OFF')"><i class="fa-solid fa-magnifying-glass"></i> <a id = "text-enlarge-btn" style="margin-left: 10px;" href = "javascript:enlargeText()">Accessibility Mode OFF</a></li> 
 			</ul>
 		</nav>
 
@@ -98,6 +108,14 @@
 			in an Ypsilanti restaurant" width="200"/>
 		</div>
 
+
+		<div id="Spotify">
+			<h2>My favorite songs about food!</h2>
+			<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5sRWJUT3i3jd48IhAA6xnC?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+
+		</div>
+
+		
 	</main>
 
 	<br>

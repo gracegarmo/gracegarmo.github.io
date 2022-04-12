@@ -30,15 +30,24 @@
 		var main = document.getElementById("main-content");
 		main.classList.toggle("large-text");
 
-		if(document.getElementById("text-enlarge-btn").innerHTML == "Enlarge Text"){
-			document.getElementById("text-enlarge-btn").innerHTML = "Shrink Text";
+		if(document.getElementById("text-enlarge-btn").innerHTML == "Accessibility Mode OFF"){
+			document.getElementById("text-enlarge-btn").innerHTML = "Accessibility Mode ON";
 		} else {
-			document.getElementById("text-enlarge-btn").innerHTML = "Enlarge Text";
+			document.getElementById("text-enlarge-btn").innerHTML = "Accessibility Mode OFF";
+		}
+
+		if (document.getElementById("text-enlarge-btn").innerHTML == "Accessibility Mode ON") {
+			window.speechSynthesis.speak(new SpeechSynthesisUtterance("Accessibility Mode ON"));
+		}
+	}
+
+	function speakTitles(pageName) {
+		if (document.getElementById("text-enlarge-btn").innerHTML == "Accessibility Mode ON") {
+			window.speechSynthesis.speak(new SpeechSynthesisUtterance(pageName));
 		}
 	}
 
 </script>
-
 
 	<title>About Me</title>
 </head>
@@ -50,11 +59,11 @@
 			
 		<nav>
 			<ul>
-				<li> <i class="fa-solid fa-house"></i> <a style="margin-left: 10px;" href = "index.html">Home</a></li>
-				<li><i class="fa-solid fa-bowl-food"></i> <a style="margin-left: 10px;" href = "food.html">Food</a></li>
-				<li><i class="fa-solid fa-whiskey-glass"></i> <a style="margin-left: 10px;" href = "drinks.html">Drinks</a></li> 
-				<li class="active"><i class="fa-solid fa-user"></i> <a style="margin-left: 10px;" href = "about.html">Contact</a></li>
-				<li><i class="fa-solid fa-magnifying-glass"></i> <a id = "text-enlarge-btn" style="margin-left: 10px;" href = "javascript:enlargeText()">Enlarge Text</a></li> 
+				<li onclick="speakTitles('Home')"> <i class="fa-solid fa-house"></i> <a style="margin-left: 10px;" href = "index.html">Home</a></li>
+				<li onclick="speakTitles('Food')"><i class="fa-solid fa-bowl-food"></i> <a style="margin-left: 10px;" href = "food.html">Food</a></li>
+				<li onclick="speakTitles('Drinks')"><i class="fa-solid fa-whiskey-glass"></i> <a style="margin-left: 10px;" href = "drinks.html">Drinks</a></li> 
+				<li onclick="speakTitles('Contact')" class="active"><i class="fa-solid fa-user"></i> <a style="margin-left: 10px;" href = "about.html">Contact</a></li>
+				<li onclick="speakTitles('Accessibility Mode OFF')"><i class="fa-solid fa-magnifying-glass"></i> <a id = "text-enlarge-btn" style="margin-left: 10px;" href = "javascript:enlargeText()">Accessibility Mode OFF</a></li> 
 			</ul>
 		</nav>
 
@@ -65,8 +74,9 @@
 
 		<br>
 
-		<img src = "images/gracecoffee.jpg" alt="Me drinking a cup of iced coffee outside my favorite 
-        coffee shop in Ann Arbor" width="200"/>
+		<div class="parallax styled-img">
+			<!-- <img src = "images/gracecoffee.jpg" alt="Me drinking a cup of iced coffee outside my favorite coffee shop in Ann Arbor" width="200"/> -->
+		</div>
 
 		<br>
 		<br>
@@ -93,15 +103,32 @@
  			 method="POST"
 			>
   			<label>
-   			 Your email:
-   			 <input id = "email-input" class = "input-small"  type="email" name="email">
+   			 Your first name:
+   			 <input class = "input-small"  type="name" name="first name">
   			</label>
+
+			  <label>
+   			 Your last name:
+   			 <input class = "input-small"  type="name" name="last name">
+  			</label>
+
+			  <label>
+   			 Subject of your message:
+   			 <input class = "input-small"  type="subject" name="subject">
+  			</label>
+
+			  <label>
+   			 Your email:
+   			 <input class = "input-small"  type="email" name="email">
+  			</label>
+
   			<label>
     		Your message:
     		<textarea class = "input-large" name="message"></textarea>
   			</label>
  			 <button class = "btn-large" type="submit">Send</button>
 			</form>
+
 	</main>
 
 	<footer>

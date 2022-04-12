@@ -30,10 +30,20 @@
 		var main = document.getElementById("main-content");
 		main.classList.toggle("large-text");
 
-		if(document.getElementById("text-enlarge-btn").innerHTML == "Enlarge Text"){
-			document.getElementById("text-enlarge-btn").innerHTML = "Shrink Text";
+		if(document.getElementById("text-enlarge-btn").innerHTML == "Accessibility Mode OFF"){
+			document.getElementById("text-enlarge-btn").innerHTML = "Accessibility Mode ON";
 		} else {
-			document.getElementById("text-enlarge-btn").innerHTML = "Enlarge Text";
+			document.getElementById("text-enlarge-btn").innerHTML = "Accessibility Mode OFF";
+		}
+
+		if (document.getElementById("text-enlarge-btn").innerHTML == "Accessibility Mode ON") {
+			window.speechSynthesis.speak(new SpeechSynthesisUtterance("Accessibility Mode ON"));
+		}
+	}
+
+	function speakTitles(pageName) {
+		if (document.getElementById("text-enlarge-btn").innerHTML == "Accessibility Mode ON") {
+			window.speechSynthesis.speak(new SpeechSynthesisUtterance(pageName));
 		}
 	}
 
@@ -43,20 +53,20 @@
 </head>
 
 <body>
-
 	<a class = "skip" href="#main">Skip to Main Content</a>
 
 	<header>
+			
 		<nav>
 			<ul>
-				<li> <i class="fa-solid fa-house"></i> <a style="margin-left: 10px;" href = "index.html">Home</a></li>
-				<li class="active"><i class="fa-solid fa-bowl-food"></i> <a style="margin-left: 10px;" href = "food.html">Food</a></li>
-				<li><i class="fa-solid fa-whiskey-glass"></i> <a style="margin-left: 10px;" href = "drinks.html">Drinks</a></li> 
-				<li><i class="fa-solid fa-user"></i> <a style="margin-left: 10px;" href = "about.html">Contact</a></li>
-				<li><i class="fa-solid fa-magnifying-glass"></i> <a id = "text-enlarge-btn" style="margin-left: 10px;" href = "javascript:enlargeText()">Enlarge Text</a></li> 
+				<li onclick="speakTitles('Home')"> <i class="fa-solid fa-house"></i> <a style="margin-left: 10px;" href = "index.html">Home</a></li>
+				<li onclick="speakTitles('Food')" class="active"><i class="fa-solid fa-bowl-food"></i> <a style="margin-left: 10px;" href = "food.html">FOOD</a></li>
+				<li onclick="speakTitles('Drinks')"><i class="fa-solid fa-whiskey-glass"></i> <a style="margin-left: 10px;" href = "drinks.html">Drinks</a></li> 
+				<li onclick="speakTitles('Contact')"><i class="fa-solid fa-user"></i> <a style="margin-left: 10px;" href = "about.html">Contact</a></li>
+				<li onclick="speakTitles('Accessibility Mode OFF')"><i class="fa-solid fa-magnifying-glass"></i> <a id = "text-enlarge-btn" style="margin-left: 10px;" href = "javascript:enlargeText()">Accessibility Mode OFF</a></li> 
 			</ul>
 		</nav>
-	
+
 	</header>
 	
 	<main id = "main-content">
@@ -103,13 +113,42 @@
 
 			</div>
 
-			<div class="food-images image-container image-grid">
+			<div class="image-grid food-images image-container">
 
-				<img class = "styled-img" src = "images/batataharra.jpeg" alt="A plate of Batata Harra, a Lebanese dish with fried
-				diced potatoes and cilantro" width="200"/>
-				<img class = "styled-img" src = "images/fatoush.jpeg" alt="A plate of fatoush, a traditional Lebanese salad" width="200"/>
-				<img class = "styled-img" src = "images/dolma.jpeg" alt="A plate of dolma, a traditional Middle Eastern dish
-				composed of rolled grape leaves stuffed with meat or vegetables" width="200"/>
+				<div class="food-card styled-img">
+					<div class="food-card-inner">
+					  <div class="food-card-front">
+						<img src = "images/batataharra.jpeg" alt="A plate of Batata Harra, a Lebanese dish with fried diced potatoes and cilantro"/>
+					  </div>
+					  <div class="food-card-back">
+						<p>A plate of Batata Harra, a Lebanese dish with fried
+							diced potatoes and cilantro</p>
+					  </div>
+					</div>
+				</div>
+
+				<div class="food-card">
+					<div class="food-card-inner">
+					  <div class="food-card-front">
+						<img src = "images/fatoush.jpeg" alt="A plate of fatoush, a traditional Lebanese salad"/>
+					  </div>
+					  <div class="food-card-back">
+						<p>A plate of fatoush, a traditional Lebanese salad</p>
+					  </div>
+					</div>
+				</div>
+
+				<div class="food-card">
+					<div class="food-card-inner">
+					  <div class="food-card-front">
+						<img src = "images/dolma.jpeg" alt="A plate of fatoush, a traditional Lebanese salad"/>
+					  </div>
+					  <div class="food-card-back">
+						<p>A plate of dolma, a traditional Middle Eastern dish
+							composed of rolled grape leaves stuffed with meat or vegetables</p>
+					  </div>
+					</div>
+				</div>
 
 			</div>
 		</div>
@@ -137,12 +176,44 @@
 
 			<div class="image-grid food-images image-container">
 
-				<img class = "styled-img" src = "images/chickenkatsu.jpeg" alt="A plate of chicken katsu, a Japanese
-				friend chicken dish" width="200"/>
-				<img class = "styled-img" src = "images/massamancurry.jpeg" alt="A plate massaman curry, a Thai curry dish
-				served with potatoes" width="200"/>
-				<img class = "styled-img" src = "images/rajma.jpeg" alt="A plate of rajma, an Indian dish composed of
-				red kidney beans and masala" width="200"/>
+				<div class="food-card styled-img">
+					<div class="food-card-inner">
+					  <div class="food-card-front">
+						<img src = "images/chickenkatsu.jpeg" alt="A plate of chicken katsu, a Japanese
+						friend chicken dish">
+					  </div>
+					  <div class="food-card-back">
+						<p>A plate of chicken katsu, a Japanese
+							friend chicken dish</p>
+					  </div>
+					</div>
+				</div>
+
+				<div class="food-card">
+					<div class="food-card-inner">
+					  <div class="food-card-front">
+						<img src = "images/massamancurry.jpeg" alt="A plate massaman curry, a Thai curry dish
+						served with potatoes">
+					  </div>
+					  <div class="food-card-back">
+						<p>A plate massaman curry, a Thai curry dish
+							served with potatoes</p>
+					  </div>
+					</div>
+				</div>
+
+				<div class="food-card">
+					<div class="food-card-inner">
+					  <div class="food-card-front">
+						<img src = "images/rajma.jpeg" alt="A plate of rajma, an Indian dish composed of
+						red kidney beans and masala"/>
+					  </div>
+					  <div class="food-card-back">
+						<p>A plate of rajma, an Indian dish composed of
+							red kidney beans and masala</p>
+					  </div>
+					</div>
+				</div>
 
 			</div>
 		</div>
@@ -165,11 +236,42 @@
 
 			<div class="image-grid food-images image-container">
 
-				<img class = "styled-img" src = "images/tostadas.jpeg" alt="A plate of chicken tostadas, a Mexican dish" width="200"/>
-				<img class = "styled-img" src = "images/baleadas.jpg" alt="A plate of baleadas, a Honduran dish composed of a flour
-				tortilla anf filled with beans and crema" width="200"/>
-				<img class = "styled-img" src = "images/pupusa.jpeg" alt="A plate of pupusas, an Salvadorean cornmeal dish filled
-				with veggies" width="200"/>
+				<div class="food-card styled-img">
+					<div class="food-card-inner">
+					  <div class="food-card-front">
+						<img src = "images/tostadas.jpeg" alt="A plate of chicken tostadas, a Mexican dish">
+					  </div>
+					  <div class="food-card-back">
+						<p>A plate of chicken tostadas, a Mexican dish</p>
+					  </div>
+					</div>
+				</div>
+
+				<div class="food-card">
+					<div class="food-card-inner">
+					  <div class="food-card-front">
+						<img src = "images/baleadas.jpg" alt="A plate of baleadas, a Honduran dish composed of a flour
+						tortilla anf filled with beans and crema">
+					  </div>
+					  <div class="food-card-back">
+						<p>A plate of baleadas, a Honduran dish composed of a flour
+							tortilla anf filled with beans and crema</p>
+					  </div>
+					</div>
+				</div>
+
+				<div class="food-card">
+					<div class="food-card-inner">
+					  <div class="food-card-front">
+						<img src = "images/pupusa.jpeg" alt="A plate of pupusas, an Salvadorean cornmeal dish filled
+						with veggies"/>
+					  </div>
+					  <div class="food-card-back">
+						<p>A plate of pupusas, an Salvadorean cornmeal dish filled
+							with veggies</p>
+					  </div>
+					</div>
+				</div>
 
 			</div>
 		</div>

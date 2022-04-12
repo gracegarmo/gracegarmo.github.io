@@ -23,6 +23,7 @@ main {
     font-size: 18px;
 }
 
+
 h1 {
     text-align: center;
     font-weight: 800;
@@ -111,9 +112,6 @@ hr {
     color: #E35550;
 }
 
-.styled-img{
-    margin-bottom: 20px;
-}
 
 a.ul-link {
     text-decoration: underline;
@@ -165,6 +163,20 @@ a.skip:focus{
     padding-right: 40px;
 }
 
+.parallax {
+    background-image: url(../images/gracecoffee.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 70%;
+    height: 400px;
+    margin: auto;
+
+    border: 2px solid #000000;
+}
+
  .animated {
     animation-duration: 2s;
     animation-name: slide;
@@ -188,11 +200,12 @@ a.skip:focus{
 
   form {
     width: 100%;
-    margin: 20px;
+    margin: auto;
     padding: 40px;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    margin-bottom: 30px;
   }
 
   input, textarea,.btn-large {
@@ -221,7 +234,53 @@ a.skip:focus{
       font-size: 24px;
   }
 
-@media screen and (max-width: 480px) {
+/*copied and pasted from w3 schools, changed a lot of styling to fit images and needs*/
+
+.food-card {
+    width: 300px;
+    height: 200px;
+    perspective: 1000px;
+    margin: auto;
+  }
+
+  .food-card-inner {
+    position: relative;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+  .food-card:hover .food-card-inner, .food-card:focus-within .food-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .food-card-front, .food-card-back {
+    position: absolute;
+    backface-visibility: hidden;
+    padding: 0px;
+    margin: 0;
+  }
+
+  .food-card-back {
+    color: black;
+    transform: rotateY(180deg);
+    border: 3px groove #ef95e1;
+    width: 300px;
+    height: 200px;
+  }
+
+  .food-card-back p {
+    padding: 10px;
+  }
+
+  #Spotify {
+      width: 80%;
+      margin: auto;
+      margin-top: 60px;
+  }
+
+
+@media screen and (max-width: 800px) {
     .flex-row-cont {
         flex-direction: column;
     }
@@ -235,7 +294,6 @@ a.skip:focus{
         padding-top: 10px;
         padding-bottom: 10px;
         margin: auto;
-        font-size: 16px;
     }
 
     .flex-row-cont {
@@ -277,6 +335,14 @@ a.skip:focus{
         width: 80%;
         margin: auto;
     }
+
+    .large-text {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    
 }
 
 @media (prefers-reduced-motion) {
@@ -284,4 +350,32 @@ a.skip:focus{
       animation-name: none;
       animation-duration: 0s;
     }
+
+    .food-card:hover .food-card-inner,
+    .food-card:focus-within .food-card-inner {
+      transform: rotateY(0deg);
+    }
+
+    .food-card-inner {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .food-card-back {
+        display: block;
+        backface-visibility: visible;
+        border: none;
+        transform: rotateY(0deg);
+        position: relative;
+        margin-top: 200px;
+    }
+
+    .food-images {
+        padding-bottom: 200px;
+    }
+
+    .parallax {
+        background-attachment: scroll;
+    }
+
 }
