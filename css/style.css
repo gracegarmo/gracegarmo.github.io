@@ -352,7 +352,7 @@ a.skip:focus{
     }
 
     .food-card:hover .food-card-inner,
-    .food-card:focus-within .food-card-inner {
+    .food-card:focus-within .food-card-inner, .food-card:focus .food-card-inner {
       transform: rotateY(0deg);
     }
 
