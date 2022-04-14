@@ -17,10 +17,10 @@ header {
 
 main {
     background-color: #FFFFFF;
-    padding: 50px;
+    padding: 20px;
     border: 2px solid #000000;
     border-radius: 0px 0px 10px 10px;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 
@@ -59,12 +59,14 @@ img:hover {
 nav {
     padding: 30px;
     text-align: center;
+    margin: auto;
 }
 
 ul {
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
+    flex-direction: column;
+    text-align: center;
 }
 
 .title {
@@ -75,7 +77,9 @@ nav li {
     color: #000000;
     padding: 10px;
     display: inline-block;
-    width: 10%;
+    width: 80%;
+    margin: auto;
+    font-size: 20px;
 }
 
 nav li:hover {
@@ -93,10 +97,6 @@ footer p {
     border: 2px solid #000000;
     border-radius: 20px;
     background-color: #FFEAFF;
-}
-
-li.active a {
-    color: #000000;
 }
 
 a:visited{color: #000000;}
@@ -140,17 +140,22 @@ a.skip:focus{
 }
 
 .main-content {
-    padding: 40px;
+    padding: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: auto;
 }
 
 .flex-row-cont {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0px;
+    gap: 30px;
 }
 
 .text-container {
-    padding: 40px;
+    padding: 10px;
 }
 
 .food-images {
@@ -159,8 +164,7 @@ a.skip:focus{
 }
 
 .intro {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding: 10px;
 }
 
 .parallax {
@@ -194,8 +198,9 @@ a.skip:focus{
 
   .image-grid {
     display: grid;
-    grid-template-columns: auto auto auto;
-    align-content: center;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto;
+    row-gap: 50px;
   }
 
   form {
@@ -230,10 +235,6 @@ a.skip:focus{
       font-size: 20px;
   }
 
-  .large-text {
-      font-size: 24px;
-  }
-
 /*copied and pasted from w3 schools, changed a lot of styling to fit images and needs*/
 
 .food-card {
@@ -259,6 +260,8 @@ a.skip:focus{
     backface-visibility: hidden;
     padding: 0px;
     margin: 0;
+    width: 300px;
+    height: 200px;
   }
 
   .food-card-back {
@@ -279,70 +282,129 @@ a.skip:focus{
       margin-top: 60px;
   }
 
+  .flex-col-cont {
+    padding: 0px;
+}
 
-@media screen and (max-width: 800px) {
+.large-text {
+    font-size: 24px;
+}
+
+.food-card-img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.fa-solid {
+    margin-right: 10px;
+}
+
+#text-enlarge-btn {
+    text-align: center;
+}
+
+
+@media screen and (min-width: 800px) {
     .flex-row-cont {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 20px;
+        row-gap: 20px;
     }
 
     main {
-        padding: 20px;
+        padding: 50px;
     }
 
     .main-content {
-        padding: 0px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        margin: auto;
-    }
-
-    .flex-row-cont {
-        padding: 0px;
-    }
-
-    .flex-col-cont {
-        padding: 0px;
+        padding: 40px;
     }
 
     .text-container {
-        padding: 10px;
+        padding: 40px;
     }
 
     .intro {
-        padding: 10px;
-    }
-
-    p {
-        font-size: 16px;
-    }
-
-    .image-grid {
-        grid-template-columns: auto;
-        grid-template-rows: auto auto auto;
+        padding-left: 40px;
+        padding-right: 40px;
     }
 
     ul {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    nav {
-        margin: auto;
-        text-align: center;
+        flex-direction: row;
     }
 
     nav li {
-        width: 80%;
-        margin: auto;
+        width: 10%;
     }
 
     .large-text {
-        font-size: 20px;
+        font-size: 26px;
     }
+
+    ul {
+        text-align: center;
+    }
+
+    .fa-solid {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 5px;
+    }
+
+    #text-enlarge-btn {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .image-grid {
+        grid-template-columns: auto repeat(4, 150px) auto;
+        grid-template-rows: auto auto;
+        align-content: center;
+        justify-items: end;
+        margin: auto;
+    }
+
+    .grid-item-1 {
+        grid-column: 2 / span 1;
+        grid-row: 1/1;
+    }
+
+    .grid-item-2 {
+        grid-column: 4 / span 1;
+        grid-row: 1/1;
+    }
+
+    .grid-item-3 {
+        grid-column: 3 / span 1;
+        grid-row: 2/2;
+    }
+
 }
 
-@media screen and (min-width: 800px) {
-    
+@media screen and (min-width: 1100px) {
+    .fa-solid {
+        margin: 0px;
+        margin-right: 10px;
+    }
+
+    .image-grid {
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto;
+    }
+
+    .grid-item-1 {
+        grid-column: 1 / span 1;
+    }
+
+    .grid-item-2 {
+        grid-column: 2 / span 1;
+    }
+
+    .grid-item-3 {
+        grid-column: 3 / span 1;
+        grid-row: 1/1;
+    }
+
 }
 
 @media (prefers-reduced-motion) {
@@ -370,8 +432,16 @@ a.skip:focus{
         margin-top: 200px;
     }
 
+    .food-card {
+        height: 300px;
+    }
+
+    .food-card-back {
+        margin-top: 220px;
+    }
+
     .food-images {
-        padding-bottom: 200px;
+        padding-bottom: 100px;
     }
 
     .parallax {
